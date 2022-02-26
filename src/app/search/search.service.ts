@@ -13,7 +13,6 @@ export class SearchService {
       { long_url: url },
       {
         headers: {
-          Authorization: 'Bearer addd21c590aafdf5521d6bc5e5ff02ba8a97ea8a',
           'Content-Type': 'application/json',
         },
       }

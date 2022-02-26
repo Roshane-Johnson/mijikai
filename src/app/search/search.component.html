@@ -13,7 +13,7 @@
     <input
       class="py-4 px-3.5 rounded-tl-md rounded-bl-md outline-offset-0 border text-slate-900 border-gray-300 dark:border-gray-600"
       type="search"
-      placeholder="Enter the link here"
+      placeholder="Ex. https://twitter.com/kendrip_"
       formControlName="q"
     />
     <button
@@ -24,26 +24,34 @@
       Shorten
     </button>
   </form>
+  <div>
+    <span
+      *ngIf="!fetchCompleted && errorMessage"
+      class="px-8 py-4 bg-red-500 font-semibold uppercase text-white shadow-2xl dark:bg-white dark:text-red-500 shadow-red-800 rounded-lg"
+    >
+      {{ errorMessage }}
+    </span>
+  </div>
   <div [ngSwitch]="fetchCompleted">
     <div *ngSwitchCase="true">
       <span
-        class="px-8 py-4 bg-slate-900 text-slate-100 shadow-2xl dark:shadow-blue-800/75 shadow-gray-800/95 dark:text-slate-900 dark:bg-white rounded-lg text-salte-900"
+        class="px-8 py-4 bg-slate-900 text-slate-100 shadow-2xl shadow-primary-800/75 dark:text-slate-900 dark:bg-white rounded-lg"
       >
         {{ shortenedUrl }}
       </span>
       <span
-        class="p-4 ml-3 bg-primary-500 text-white shadow-2xl shadow-blue-800/75 hover:bg-white hover:text-primary-500 transition-colors rounded-lg cursor-pointer select-none"
+        class="p-4 ml-3 bg-primary-500 text-slate-100 shadow-2xl shadow-primary-800/75 dark:hover:bg-white dark:hover:text-primary-500 hover:bg-slate-900 hover:text-white transition-colors rounded-lg cursor-pointer select-none"
         (click)="copyToClipboard(shortenedUrl)"
       >
         {{ copyStatusText }}
       </span>
     </div>
-    <p *ngSwitchCase="false" class="py-4 scale-150">
+    <p *ngIf="fetchCompleted == false && !errorMessage" class="py-4 scale-150">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
-        class="animate-spin mx-auto h-5 w-5 text-white"
+        class="animate-spin mx-auto h-5 w-5 text-primary-500 dark:text-white"
       >
         <circle
           cx="12"

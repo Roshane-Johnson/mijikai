@@ -5,3 +5,7 @@
 .card {
   @apply flex flex-col justify-center items-center w-full;
 }
+
+html {
+  @apply bg-white dark:bg-slate-900;
+}
