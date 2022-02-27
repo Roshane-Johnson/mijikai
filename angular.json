@@ -103,6 +103,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "url-shortner:build:production",
+            "firebaseProject": "mijikai-420",
+            "firebaseHostingSite": "mijikai-420"
+          }
         }
       }
     }

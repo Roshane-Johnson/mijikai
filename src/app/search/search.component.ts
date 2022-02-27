@@ -60,7 +60,8 @@ export class SearchComponent implements OnInit, OnDestroy {
             this.fetchCompleted = true;
           },
         });
-      return;
+    } else if (this.url?.invalid) {
+      this.errorMessage = 'URL Example: https://google.com';
     }
   }
 

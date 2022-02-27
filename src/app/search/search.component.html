@@ -13,12 +13,11 @@
     <input
       class="py-4 px-3.5 rounded-tl-md rounded-bl-md outline-offset-0 border text-slate-900 border-gray-300 dark:border-gray-600"
       type="search"
-      placeholder="Ex. https://twitter.com/kendrip_"
+      placeholder="Enter link here"
       formControlName="q"
     />
     <button
       class="text-center text-white py-4 px-3.5 disabled:cursor-not-allowed disabled:bg-slate-500 bg-primary-600 hover:bg-primary-800 rounded-tr-md rounded-br-md transition-all"
-      [disabled]="shortenUrlForm.invalid"
       (click)="shortenUrl()"
     >
       Shorten
@@ -27,7 +26,7 @@
   <div>
     <span
       *ngIf="!fetchCompleted && errorMessage"
-      class="px-8 py-4 bg-red-500 font-semibold uppercase text-white shadow-2xl dark:bg-white dark:text-red-500 shadow-red-800 rounded-lg"
+      class="px-8 py-4 bg-red-500 font-semibold text-white shadow-2xl dark:bg-white dark:text-red-500 shadow-red-800 rounded-lg"
     >
       {{ errorMessage }}
     </span>

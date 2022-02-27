@@ -8,12 +8,12 @@ import { Component, OnInit } from '@angular/core';
 export class NavbarComponent implements OnInit {
   constructor() {}
 
-  isDarkMode: boolean = false;
+  isDarkMode: boolean = true;
 
   toggleTheme() {
     const documentElement = document.querySelector('body');
 
-    if (localStorage['theme'] == 'dark') {
+    if (localStorage['theme'] === 'dark') {
       documentElement?.classList.remove('dark');
       localStorage['theme'] = 'light';
       this.isDarkMode = false;
@@ -25,8 +25,16 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    localStorage.getItem('theme') ? (localStorage['theme'] = 'dark') : null;
-    document.querySelector('body')?.classList.add('dark');
-    this.isDarkMode = true;
+    if (localStorage['theme'] === 'dark') {
+      document.querySelector('body')?.classList.add('dark');
+      this.isDarkMode = true;
+    } else if (localStorage['theme'] === 'light') {
+      document.querySelector('body')?.classList.remove('dark');
+      this.isDarkMode = false;
+    } else {
+      localStorage['theme'] = 'dark';
+      document.querySelector('body')?.classList.add('dark');
+      this.isDarkMode = true;
+    }
   }
 }
