@@ -1,14 +1,5 @@
 {
   "projects": {
     "default": "mijikai-420"
-  },
-  "targets": {
-    "mijikai-420": {
-      "hosting": {
-        "url-shortner": [
-          "mijikai-420"
-        ]
-      }
-    }
   }
 }
