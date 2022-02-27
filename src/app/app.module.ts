@@ -9,15 +9,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SearchComponent } from './search/search.component';
 import { FooterComponent } from './footer/footer.component';
 import { AuthInterceptor } from './auth.interceptor';
-import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
-import {
-  provideAnalytics,
-  getAnalytics,
-  ScreenTrackingService,
-  UserTrackingService,
-} from '@angular/fire/analytics';
-import { providePerformance, getPerformance } from '@angular/fire/performance';
 
 @NgModule({
   declarations: [
@@ -32,9 +24,6 @@ import { providePerformance, getPerformance } from '@angular/fire/performance';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideAnalytics(() => getAnalytics()),
-    providePerformance(() => getPerformance()),
   ],
   providers: [
     {
@@ -42,8 +31,6 @@ import { providePerformance, getPerformance } from '@angular/fire/performance';
       useClass: AuthInterceptor,
       multi: true,
     },
-    ScreenTrackingService,
-    // UserTrackingService,
   ],
   bootstrap: [AppComponent],
 })
