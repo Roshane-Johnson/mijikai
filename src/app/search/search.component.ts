@@ -35,7 +35,7 @@ export class SearchComponent implements OnInit, OnDestroy {
     this.fetchCompleted = false;
     if (this.url?.valid) {
       this.shortenSubscription = this.shortService
-        .shortenUrl(this.shortenUrlForm.get('q')?.value)
+        .shortenUrl(this.shortenUrlForm.get('q')?.value.trim())
         .subscribe({
           next: (resp: any) => {
             this.shortenedUrl = resp.link;
